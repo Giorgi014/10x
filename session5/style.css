@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(108, 33, 177);
+    width: 100%;
+    height: 100vh;
+}
+
+table {
+    width: 70%;
+    height: 600px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-radius: 30px;
+    background-color: white;
+    margin: 100px auto;
+}
+
+table .tr-table {
+    cursor: pointer;
+    transition: .3s background;
+}
+
+table .tr-table:hover {
+    background-color: rgb(235, 215, 255);
+    color: rgb(67, 10, 121);
+}
+
+table tr {
+    border: 1px solid rgb(158, 109, 203);
+}
+
+table th {
+    text-align: left;
+}
+
+table thead {
+    border-radius: 15px;
+    background-color: rgb(239, 239, 239);
+}
+
+table .check {
+    width: 55px;
+}
+
+table .check input {
+    margin: 10px;
+}
+
+table .check input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+table .tr-head {
+    cursor: pointer;
+}
+table .star-rating{
+    display: flex;
+}
+table .first-star:hover{
+    transform: scale(1.2);
+    color: rgb(225, 225, 26);
+}
+table .second-star:hover{
+    transform: scale(1.2);
+    color: rgb(225, 225, 26);
+}
+table .third-star:hover{
+    transform: scale(1.2);
+    color: rgb(225, 225, 26);
+}
+table .forth-star:hover{
+    transform: scale(1.2);
+    color: rgb(225, 225, 26);
+}
+table .fifth-star:hover{
+    transform: scale(1.2);
+    color: rgb(225, 225, 26);
+}
