@@ -1,83 +1,171 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-body{
-    background-color: rgb(27, 25, 25);
-    color: white;
+body {
+  background-color: rgb(27, 25, 25);
+  color: white;
 }
-header{
-    height: 70px;
-    background-color: rgb(26, 26, 26);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid rgb(125, 0, 153);
+header {
+  height: 70px;
+  background-color: rgb(14, 14, 14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(125, 0, 153);
 }
-header h1{
-    margin: 0 50px;
+header h1 {
+  margin: 0 50px;
 }
-header nav ul{
-    display: flex;
-    list-style: none;
-    margin-right: 250px;
-    font-size: 1.3rem;
-    gap: 50px;
+header nav ul {
+  display: flex;
+  list-style: none;
+  margin-right: 250px;
+  font-size: 1.3rem;
+  gap: 50px;
 }
-header nav ul li a{
-    text-decoration: none;
-    padding: 22px 20px;
-    cursor: pointer;
-    color: white;
+header nav ul li a {
+  text-decoration: none;
+  padding: 22px 20px;
+  cursor: pointer;
+  color: white;
 }
-header nav ul li a:hover{
-    border-bottom: 2px solid red;
+header nav ul li a:hover {
+  border-bottom: 2px solid red;
 }
-#about{
-    border-bottom: 2px solid rgb(125, 0, 153);
+#about {
+  border-bottom: 2px solid rgb(125, 0, 153);
 }
-#about h2{
-    text-align: center;
-    margin-top: 30px;
-    font-size: 2.5rem;
+#about h2 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 2.5rem;
 }
 #about .about {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
 }
-#about .about .about-me{
-    display: flex;
-    justify-content: center;
+#about {
+  padding: 20px;
+  color: white;
+  background-color: rgb(27, 25, 25);
+  border-bottom: 2px solid rgb(125, 0, 153);
 }
-#about .about .about-me .profile-icon{
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
+
+#about h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
-#about .about .about-me .profile-icon img{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+
+#about .about-me {
+  position: relative;
+  line-height: 1.2;
+  text-align: justify;
+  width: 50%;
 }
-#about .about-me  aside{
-    width: 500px;
+
+#about .about-me .profile-icon {
+  float: left;
+  margin-right: 30px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  shape-outside: circle();
+  box-shadow: 0px 0px 10px 1px rgb(125, 0, 153);
+  transition: 0.3s box-shadow;
+  cursor: pointer;
 }
-#about .about-me  aside img{
-    width: 100%;
-    height: 100%;
+#about .about-me .profile-icon:hover {
+  box-shadow: 0px 0px 10px 1px red;
 }
-#about #skills{
-    width: 500px;
+
+#about .about-me .profile-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-#about #skills h2{
-    margin-top: 0;
-    text-align: center;
+
+#about .about-me p {
+  margin: 0;
+  width: 620px;
 }
-#about #skills ul{
-    margin-top: 30px;
-    list-style: none;
-    display: flex;
-    gap: 10px;
-    font-size: 1.2rem;
+#about #skills {
+  width: 500px;
+}
+#about #skills h2 {
+  margin-top: 0;
+  text-align: center;
+}
+#about #skills ul {
+  margin-top: 30px;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+#projects {
+  padding-bottom: 70px;
+}
+#projects h2 {
+  margin-top: 50px;
+  text-align: center;
+}
+#projects section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+#projects .project1 {
+  width: 250px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px rgb(125, 0, 153);
+  transition: 0.3s;
+  cursor: pointer;
+}
+#projects .project1:hover {
+  box-shadow: 0px 0px 10px 1px blue;
+  margin-top: -20px;
+}
+#projects .project2 {
+  width: 250px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px rgb(125, 0, 153);
+  transition: 0.3s;
+  cursor: pointer;
+}
+#projects .project2:hover {
+  box-shadow: 0px 0px 10px 1px rgb(255, 51, 0);
+  margin-top: -20px;
+}
+#projects .project3 {
+  width: 250px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px rgb(125, 0, 153);
+  transition: 0.3s;
+  cursor: pointer;
+}
+#projects .project3:hover {
+  box-shadow: 0px 0px 10px 1px rgb(107, 107, 107);
+  margin-top: -20px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-top: 2px solid rgb(125, 0, 153);
+  background-color: rgb(14, 14, 14);
 }
