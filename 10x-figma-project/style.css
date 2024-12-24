@@ -4,29 +4,33 @@
 }
 
 .main-container {
-    height: 100vh;
+    width: 1440px;
+    height: 1084px;
     color: #FFFFFF;
     overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
 }
 
 .main-container .bg-img {
     width: 100%;
     height: 100%;
-    position: absolute;
-    z-index: -1;
 }
 
 .main-container h1 {
     font-size: 28px;
+    cursor: pointer;
 }
 
 .main-container header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 41px;
-    padding: 0 100px;
-}
+    top: 41px;
+    left: 70px;
+    position: absolute;
+    width: 90%;
+} 
 
 .main-container header nav ul {
     display: flex;
@@ -41,7 +45,7 @@
     gap: 3px;
 }
 .main-container header nav ul li a {
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 1);
     text-decoration: none;
     font-size: 18px;
 }
@@ -51,6 +55,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
 }
 
 .main-container .cart {
@@ -74,32 +79,92 @@
 .main-container h2 {
     text-align: center;
     font-size: 80px;
-    width: 1000px;
-    margin: 10px auto;
+    width: 880px;
+    position: absolute;
+    top: 161px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .main-container p {
     text-align: center;
     font-size: 24px;
     width: 550px;
-    margin: 10px auto;
     line-height: 38px;
     opacity: 80%;
-    font-weight: 300;
+    position: absolute;
+    top: 383px;
+    left: 50%;
+    transform: translateX(-50%);
 }
-
-.main-container .input-place {
-    position: relative;
+.main-container .circle {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    top: 703px;
+    left: 290px;
+    width: 15px;
+    height: 15px;
+    transform: scale(1);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    transition: .5s;
+    z-index: 2;
+}
+.main-container .circle:hover {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    transform: scale(2.5);
+    box-shadow: 0 0 0 0.10px rgba(255, 255, 255, 1);
+    border: none;
+    backdrop-filter: blur(5px);
+    background-color: transparent;
+}
+.main-container .circle .outline-circle{
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: .3s;
+}
+.main-container .circle .outline-circle:hover{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.172px rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.2);
+}
+.main-container .circle .outline-circle .inline-circle{
+    position: absolute;
+    width: 13px; 
+    height: 13px;
+    background-color: white;
+    border-radius: 50%;
+}
+.main-container .input-place {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 344px;
     height: 56px;
     border-radius: 42px;
     border: 0.82px solid #FFFFFF;
     overflow: hidden;
-    color: #FFFFFF;
+    color: #cea0a0;
+    top: 504px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .main-container .input-place input {
