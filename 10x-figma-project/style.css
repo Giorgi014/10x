@@ -30,7 +30,7 @@
     left: 70px;
     position: absolute;
     width: 90%;
-} 
+}
 
 .main-container header nav ul {
     display: flex;
@@ -38,12 +38,14 @@
     list-style: none;
     gap: 30px;
 }
+
 .main-container header nav ul li #drop-menu {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 3px;
 }
+
 .main-container header nav ul li a {
     color: rgba(255, 255, 255, 1);
     text-decoration: none;
@@ -97,60 +99,178 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
 .main-container .circle {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 703px;
-    left: 290px;
-    width: 15px;
-    height: 15px;
-    transform: scale(1);
+    top: 743px;
+    left: 103px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0.84px solid rgba(255, 255, 255, 1);
     cursor: pointer;
-    transition: .5s;
-    z-index: 2;
+    transition: transform .5s;
 }
+
 .main-container .circle:hover {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    transform: scale(2.5);
-    box-shadow: 0 0 0 0.10px rgba(255, 255, 255, 1);
-    border: none;
-    backdrop-filter: blur(5px);
-    background-color: transparent;
+    transform: scale(2);
 }
-.main-container .circle .outline-circle{
-    z-index: 1;
+
+.main-container .circle .outline-circle {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    transform: scale(1);
-    transition: .3s;
-}
-.main-container .circle .outline-circle:hover{
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 0.172px rgba(255, 255, 255, 1);
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.2);
-}
-.main-container .circle .outline-circle .inline-circle{
-    position: absolute;
-    width: 13px; 
+    width: 13px;
     height: 13px;
-    background-color: white;
     border-radius: 50%;
+    background-color: rgba(255, 255, 255, 1);
+    border: 0.84px solid rgba(255, 255, 255, 1);
+    cursor: pointer;
 }
+
+.main-container .circle .outline-circle:hover {
+    animation: vibration 1s infinite ease-in-out;
+}
+
+.main-container .circle2 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 680px;
+    left: 290px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0.84px solid rgba(255, 255, 255, 1);
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.main-container .circle2:hover {
+    transform: scale(2);
+}
+
+.main-container .circle2 .outline-circle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 1);
+    border: 0.84px solid rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.main-container .circle2 .outline-circle:hover {
+    animation: vibration 1s infinite ease-in-out;
+}
+
+.main-container .circle3 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 775px;
+    left: 800px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0.84px solid rgba(255, 255, 255, 1);
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.main-container .circle3:hover {
+    transform: scale(2);
+}
+
+.main-container .circle3 .outline-circle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 1);
+    border: 0.84px solid rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.main-container .circle3 .outline-circle:hover {
+    animation: vibration 1s infinite ease-in-out;
+}
+
+.main-container .circle4 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 820px;
+    left: 1375px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0.84px solid rgba(255, 255, 255, 1);
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.main-container .circle4:hover {
+    transform: scale(2);
+}
+
+.main-container .circle4 .outline-circle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 1);
+    border: 0.84px solid rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.main-container .circle4 .outline-circle:hover {
+    animation: vibration 1s infinite ease-in-out;
+}
+
+@keyframes vibration {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
+    }
+
+    50% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0.6rem rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+@media screen and (max-width:768px) {
+    .main-container .circle {
+        display: none;
+    }
+}
+
 .main-container .input-place {
     position: absolute;
     display: flex;
@@ -215,10 +335,12 @@
     gap: 50px;
     padding-right: 100px;
 }
-.why-choosing-us .section-container section{
+
+.why-choosing-us .section-container section {
     width: 290px;
 }
-.why-choosing-us .section-container section p{
+
+.why-choosing-us .section-container section p {
     opacity: 80%;
     font-size: 16px;
     line-height: 29.6px;
