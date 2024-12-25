@@ -322,10 +322,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 80px 80px;
 }
 
 .why-choosing-us h2 {
     font-size: 42px;
+    width: 242px;
+    height: 104px;
 }
 
 .why-choosing-us .section-container {
@@ -333,15 +336,26 @@
     justify-content: space-between;
     align-items: center;
     gap: 50px;
-    padding-right: 100px;
 }
 
-.why-choosing-us .section-container section {
+.why-choosing-us .section-container .inline-container {
     width: 290px;
 }
 
-.why-choosing-us .section-container section p {
+.why-choosing-us .section-container .inline-container h3 {
+    margin-bottom: 28px;
+}
+
+.why-choosing-us .section-container .inline-container p {
     opacity: 80%;
     font-size: 16px;
     line-height: 29.6px;
+    margin-bottom: 29px;
+}
+.why-choosing-us .section-container .inline-container .more-info{
+    color: #E58411;
+}
+.why-choosing-us .section-container .inline-container .more-info a{
+    text-decoration: none;
+    color: #E58411;
 }
