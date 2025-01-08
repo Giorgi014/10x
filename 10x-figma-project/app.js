@@ -32,17 +32,8 @@ const slider = document.querySelector(".section-container");
     const numberOfSlides = slides.length
   
     let currentIndex = 0;
-  
-    // const updateSlider = () => {
-    //   slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-    // };
-  
-    // next.addEventListener("click", () => {
-    //   if (currentIndex < slides.length - 1) {
-    //     currentIndex++;
-    //     updateSlider();
-    //   }
-    // });
+
+    
     next.onclick = () => {
       currentIndex++
       if(currentIndex > (numberOfSlides - 1)){
