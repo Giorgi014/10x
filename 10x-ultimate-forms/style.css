@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", serif;
+    font-size: 12px;
+}
+body{
+    background: #F2F2F2;
+}
+.main-container{
+    background: #FFFFFF;
+    width: 472px;
+    border-radius: 15px;
+    padding: 60px;
+    margin: 0 auto;
+}
+h1{
+    font-family: "Inter", serif;
+    font-size: 42px;
+    line-height: 50.83px;
+    padding-bottom: 42px;
+}
+.full-name{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+.full-name input{
+    width: 200px;
+    padding: 12px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #42506666
+}
+.full-name input::placeholder{
+    font-size: 14px;
+}
+.location{
+    display: flex;
+    flex-direction: column;
+}
+.location p{
+    padding: 10px 0px 6px 0px ;
+}
+.location input{
+    width: 100%;
+}
+.location input::placeholder{
+    font-size: 14px;
+}
+.location img{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+}
