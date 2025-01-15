@@ -22,8 +22,13 @@
         </section>
         <section class="location">
             <p>Location</p>
-            <input type="text" placeholder="New York, United States">
-            <img src="./img/LeftIcon.png" alt="">
+            <select name="location" id="location">
+                <option value="">New York, United States</option>
+                <option value="">New York, United States</option>
+                <option value="">New York, United States</option>
+            </select>
+            <!-- <img src="./img/LeftIcon.png" alt="">
+            <img src="./img/Vector-2.png" alt=""> -->
         </section>
         <section class="radio-container">
             <div class="radio">
@@ -37,23 +42,35 @@
         </section>
         <section class="company-info">
             <p>Company information</p>
-            <input type="text">
+            <input type="text" placeholder="Company name">
         </section>
         <section class="describe-container">
             <div class="describe">
+                <img src="./img/LeftIcon-2.png" alt="">
                 <p>Describe your case</p>
             </div>
-            <input type="text">
+            <input type="text" placeholder="Tell us about your use case...">
         </section>
         <section class="phone-number">
             <p>Phone number</p>
-            <input type="text">
+            <div class="reg-numbers">
+                <select name="countries" id="countries">
+                    <option value="geo">+995</option>
+                    <option value="geo">+995</option>
+                    <option value="geo">+995</option>
+                    <option value="geo">+995</option>
+                </select>
+                <div class="line"></div>
+            <input type="tel" placeholder="Phone number">
+            </div>
         </section>
-        <section class="card-info">
+        <section class="card-info-container">
             <p>Credit card information</p>
-            <input type="text">
-            <input type="text">
-            <input type="text">
+            <input type="text" placeholder="Credit card no." data-mask="0000 0000 0000 0000">
+            <div class="card-info">
+                <input type="text" placeholder="MM / YY" data-mask="00 / 00">
+            <input type="text" placeholder="CCV" data-mask="000">
+            </div>
         </section>
         <section class="checkbox-container">
             <div class="checkbox">
