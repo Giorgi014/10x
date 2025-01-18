@@ -1,3 +1,16 @@
+@font-face {
+  font-family: Gilroy-Bold;
+  src: url(./fonts/Gilroy-Bold.ttf);
+}
+@font-face {
+  font-family: Gilroy-Medium;
+  src: url(./fonts/Gilroy-Medium.ttf);
+}
+@font-face {
+  font-family: Gilroy-Regular;
+  src: url(./fonts/Gilroy-Regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +29,15 @@
 .main-container .bg-img {
   width: 100%;
   height: 100%;
+}
+h1,h2,h3{
+  font-family: Gilroy-Bold;
+}
+a{
+  font-family: Gilroy-Medium;
+}
+p{
+  font-family: Gilroy-Regular;
 }
 .main-container h1 {
   font-size: 28px;
