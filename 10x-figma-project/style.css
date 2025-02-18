@@ -1,14 +1,14 @@
 @font-face {
   font-family: Gilroy-Bold;
-  src: url(./fonts/Gilroy-Bold.ttf);
+  src: url(./fonts/Gilroy-Bold.ttf) format("woff2");
 }
 @font-face {
   font-family: Gilroy-Medium;
-  src: url(./fonts/Gilroy-Medium.ttf);
+  src: url(./fonts/Gilroy-Medium.ttf) format("woff2");
 }
 @font-face {
   font-family: Gilroy-Regular;
-  src: url(./fonts/Gilroy-Regular.ttf);
+  src: url(./fonts/Gilroy-Regular.ttf) format("woff2");
 }
 
 * {
@@ -95,7 +95,8 @@ p{
 .main-container h2 {
   text-align: center;
   font-size: 80px;
-  width: 880px;
+  width: 861px;
+  white-space: nowrap;
   position: absolute;
   top: 161px;
   left: 50%;
