@@ -11,4 +11,3 @@ if(canFindTreasure){
 }else{
   console.log(`Alas, Alex is missing crucial clues and cannot find the treasure yet.`);
 }
-console.log("mjSGVDQWJHDVG");
