@@ -5,7 +5,8 @@ console.log(healthPotion);
 console.log(manaPotion);
 
 let totalCost = healthPotion * 3 + manaPotion * 2;
-console.log(totalCost);
+console.log("Total cost without discount" + " " +totalCost);
+
 
 if (totalCost > 50) {
   totalCost *= 0.8;

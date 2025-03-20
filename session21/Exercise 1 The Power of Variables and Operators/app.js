@@ -1,6 +1,9 @@
 let gandalfPower = 100;
 let dumbledorePower = 120;
 
+console.log("Gandalf's power: " + gandalfPower);
+console.log("Dumbledore's power: " + dumbledorePower);
+
 gandalfPower += 30;
 dumbledorePower -= 20;
 

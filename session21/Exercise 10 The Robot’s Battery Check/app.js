@@ -1,4 +1,3 @@
- let fullBattery = 100;
  let batterySufficient = 50;
  let lowBattery = 30;
 
