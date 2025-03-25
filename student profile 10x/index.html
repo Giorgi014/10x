@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Student Profile</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <section class="student-container">
+        <h1>Student Profile</h1>
+        <form class="student-profile-info">
+          <label for="full-name">
+            <input type="text" id="full-name" name="full-name" placeholder="Full name *" oninput="generateJson()"/>
+          </label>
+          <label for="Email">
+            <input type="email" name="email" placeholder="Email *" oninput="generateJson()"/>
+          </label>
+          <label>
+            <select name="all-country" oninput="generateJson()">
+              <option value="country">Country</option>
+              <option value="geo">Georgia</option>
+              <option value="usa">United States of America</option>
+              <option value="uk">United Kingdom</option>
+            </select>
+          </label>
+          <label for="phone">
+            <input type="tel" name="phone" placeholder="Phone *" oninput="generateJson()"/>
+          </label>
+          <label for="finished-university">
+            <input
+              type="number"
+              name="finished-university-years"
+              placeholder="Finished university years"
+              oninput="generateJson()"
+            />
+          </label>
+        </form>
+        <textarea id="output"></textarea>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.student-container {
+  width: 500px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 1px black;
+  overflow: hidden;
+  margin: 100px auto;
+}
+.student-container .student-profile-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.student-container .student-profile-info label {
+  width: 100%;
+}
+.student-container .student-profile-info label input {
+  width: 100%;
+  height: 35px;
+  padding: 10px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  border: 1px solid rgb(178, 178, 178);
+  font-size: 16px;
+}
+.student-container .student-profile-info label input::-moz-placeholder {
+  font-size: 13px;
+  color: rgb(178, 178, 178);
+}
+.student-container .student-profile-info label input::placeholder {
+  font-size: 13px;
+  color: rgb(178, 178, 178);
+}
+.student-container .student-profile-info label select {
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: 35px;
+  padding: 10px;
+  border: 1px solid rgb(178, 178, 178);
+}/*# sourceMappingURL=style.css.map */
