@@ -4,21 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link />
     <title>Student Profile</title>
   </head>
   <body>
     <div class="main-container">
+      <pre id="output"></pre>
       <section class="student-container">
         <h1>Student Profile</h1>
         <form class="student-profile-info">
           <label for="full-name">
-            <input type="text" id="full-name" name="full-name" placeholder="Full name *" oninput="generateJson()"/>
+            <input
+              type="text"
+              id="full-name"
+              name="full-name"
+              placeholder="Full name *"
+              oninput="generateJson()"
+            />
           </label>
           <label for="Email">
-            <input type="email" name="email" placeholder="Email *" oninput="generateJson()"/>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email *"
+              oninput="generateJson()"
+            />
           </label>
           <label>
-            <select name="all-country" oninput="generateJson()">
+            <select name="all-country" onchange="generateJson()">
               <option value="country">Country</option>
               <option value="geo">Georgia</option>
               <option value="usa">United States of America</option>
@@ -26,7 +39,12 @@
             </select>
           </label>
           <label for="phone">
-            <input type="tel" name="phone" placeholder="Phone *" oninput="generateJson()"/>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone *"
+              oninput="generateJson()"
+            />
           </label>
           <label for="finished-university">
             <input
@@ -36,8 +54,36 @@
               oninput="generateJson()"
             />
           </label>
+          <form action="primary-technologies-container">
+            <div class="primary-and-technologies">
+              <h2>Primary technologies</h2>
+             <div class="primary-technologies">
+              <div class="primary">
+                <label for="technology">
+                  <input
+                    type="text"
+                    name="technology"
+                    id="technology"
+                    placeholder="Technology *"
+                    oninput="generateJson()"
+                  />
+                </label>
+                <label for="experience">
+                  <input
+                    type="number"
+                    name="experience"
+                    id="experience"
+                    placeholder="Experience (years) *"
+                    oninput="generateJson()"
+                  />
+                </label>
+              </div>
+              <button id="remove">REMOVE</button>
+             </div>
+              <button id="add">ADD</button>
+            </div>
+          </form>
         </form>
-        <textarea id="output"></textarea>
       </section>
     </div>
 

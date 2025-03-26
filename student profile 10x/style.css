@@ -4,24 +4,40 @@
   box-sizing: border-box;
 }
 
-.student-container {
-  width: 500px;
-  padding: 20px;
-  box-shadow: 0px 0px 10px 1px black;
-  overflow: hidden;
-  margin: 100px auto;
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 50px;
+  gap: 50px;
 }
-.student-container .student-profile-info {
+.main-container #output {
+  width: 700px;
+  padding: 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  box-shadow: 0px 0px 10px 1px rgb(178, 178, 178);
+  overflow: hidden;
+}
+.main-container .student-container {
+  width: 700px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 1px rgb(178, 178, 178);
+  overflow: hidden;
+}
+.main-container .student-container .student-profile-info {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
 }
-.student-container .student-profile-info label {
+.main-container .student-container .student-profile-info label {
   width: 100%;
 }
-.student-container .student-profile-info label input {
+.main-container .student-container .student-profile-info label input {
   width: 100%;
   height: 35px;
   padding: 10px;
@@ -30,15 +46,18 @@
   border: 1px solid rgb(178, 178, 178);
   font-size: 16px;
 }
-.student-container .student-profile-info label input::-moz-placeholder {
+.main-container .student-container .student-profile-info label input::-moz-placeholder {
   font-size: 13px;
   color: rgb(178, 178, 178);
 }
-.student-container .student-profile-info label input::placeholder {
+.main-container .student-container .student-profile-info label input::placeholder {
   font-size: 13px;
   color: rgb(178, 178, 178);
 }
-.student-container .student-profile-info label select {
+.main-container .student-container .student-profile-info label input:hover {
+  outline: 1px solid rgb(80, 80, 80);
+}
+.main-container .student-container .student-profile-info label select {
   width: 100%;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -46,4 +65,37 @@
   height: 35px;
   padding: 10px;
   border: 1px solid rgb(178, 178, 178);
+}
+.main-container .student-container .student-profile-info:not(h2) {
+  align-items: flex-start;
+}
+.main-container .student-container .primary-and-technologies {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid rgb(167, 167, 167);
+  border-radius: 5px;
+}
+.main-container .student-container .primary-and-technologies h2 {
+  margin-bottom: 20px;
+}
+.main-container .student-container .primary-and-technologies .primary-technologies {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-container .student-container .primary-and-technologies .primary-technologies .primary {
+  width: 80%;
+  box-shadow: 0px 0px 10px 1px rgb(178, 178, 178);
+  border-radius: 5px;
+  padding: 30px 10px;
+}
+.main-container .student-container .primary-and-technologies button {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid rgb(167, 167, 167);
+  outline: none;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
