@@ -57,31 +57,62 @@
           <form action="primary-technologies-container">
             <div class="primary-and-technologies">
               <h2>Primary technologies</h2>
-             <div class="primary-technologies">
-              <div class="primary">
-                <label for="technology">
-                  <input
-                    type="text"
-                    name="technology"
-                    id="technology"
-                    placeholder="Technology *"
-                    oninput="generateJson()"
-                  />
-                </label>
-                <label for="experience">
-                  <input
-                    type="number"
-                    name="experience"
-                    id="experience"
-                    placeholder="Experience (years) *"
-                    oninput="generateJson()"
-                  />
-                </label>
+              <div class="primary-technologies">
+                <div class="primary">
+                  <label for="technology">
+                    <input
+                      type="text"
+                      name="technology"
+                      id="technology"
+                      placeholder="Technology *"
+                      oninput="generateJson()"
+                    />
+                  </label>
+                  <label for="experience">
+                    <input
+                      type="number"
+                      name="experience"
+                      id="experience"
+                      placeholder="Experience (years) *"
+                      oninput="generateJson()"
+                    />
+                  </label>
+                </div>
+                <button id="remove">REMOVE</button>
               </div>
-              <button id="remove">REMOVE</button>
-             </div>
               <button id="add">ADD</button>
             </div>
+            <label for="current-job-position">
+              <input
+                type="text"
+                name="current job"
+                placeholder="Current job position"
+                oninput="generateJson()"
+              />
+            </label>
+            <label for="plans-for-the-next-year">
+              <input
+                type="text"
+                name="plans for the next year"
+                placeholder="Plans for the next year *"
+                oninput="generateJson()"
+              />
+            </label>
+          </form>
+          <form action="links">
+            <h2>Links</h2>
+            <label class="github-profile">
+              <input type="text" name="github" placeholder="Github profile *" />
+            </label>
+            <label class="linkedin-profile">
+              <input type="text" name="linkedin" placeholder="Linkedin profile" />
+            </label>
+            <label class="public-website">
+              <input type="text" name="public-website" placeholder="Public website" />
+            </label>
+            <label class="link-cv">
+              <input type="text" name="cv" placeholder="Link to CV" />
+            </label>
           </form>
         </form>
       </section>

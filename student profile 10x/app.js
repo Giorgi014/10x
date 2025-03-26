@@ -6,6 +6,9 @@ function generateJson() {
   const finishedUniversity = document.querySelector(
     "[name='finished-university-years']"
   ).value;
+   const plans= document.querySelector(
+    "[name='plans for the next year']"
+  ).value;
 
   const jsonLd = {
     type: "object",
