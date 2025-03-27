@@ -6,13 +6,15 @@
     <link rel="stylesheet" href="style.css" />
     <link />
     <title>Student Profile</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
   </head>
   <body>
     <div class="main-container">
-      <pre id="output"></pre>
+      <!-- <pre id="output" contenteditable="true"></pre> -->
+      <div id="editor"></div>
       <section class="student-container">
         <h1>Student Profile</h1>
-        <form class="student-profile-info">
+        <form action="student-profile-info" class="student-profile-info">
           <label for="full-name">
             <input
               type="text"
@@ -54,7 +56,10 @@
               oninput="generateJson()"
             />
           </label>
-          <form action="primary-technologies-container">
+          <form
+            action="primary-technologies-container"
+            class="primary-and-technologies"
+          >
             <div class="primary-and-technologies">
               <h2>Primary technologies</h2>
               <div class="primary-technologies">
@@ -85,7 +90,7 @@
             <label for="current-job-position">
               <input
                 type="text"
-                name="current job"
+                name="current-job"
                 placeholder="Current job position"
                 oninput="generateJson()"
               />
@@ -93,31 +98,82 @@
             <label for="plans-for-the-next-year">
               <input
                 type="text"
-                name="plans for the next year"
+                name="plans-for-the-next-year"
                 placeholder="Plans for the next year *"
                 oninput="generateJson()"
               />
             </label>
           </form>
-          <form action="links">
+          <form action="links" class="links">
             <h2>Links</h2>
             <label class="github-profile">
-              <input type="text" name="github" placeholder="Github profile *" />
+              <input
+                type="text"
+                name="github"
+                placeholder="Github profile *"
+                oninput="generateJson()"
+              />
             </label>
             <label class="linkedin-profile">
-              <input type="text" name="linkedin" placeholder="Linkedin profile" />
+              <input
+                type="text"
+                name="linkedin"
+                placeholder="Linkedin profile"
+                oninput="generateJson()"
+              />
             </label>
             <label class="public-website">
-              <input type="text" name="public-website" placeholder="Public website" />
+              <input
+                type="text"
+                name="public-website"
+                placeholder="Public website"
+                oninput="generateJson()"
+              />
             </label>
             <label class="link-cv">
-              <input type="text" name="cv" placeholder="Link to CV" />
+              <input
+                type="text"
+                name="cv"
+                placeholder="Link to CV"
+                oninput="generateJson()"
+              />
             </label>
           </form>
+          <form action="your-projects" class="your-projects">
+            <h2>Links to your projects</h2>
+            <div class="name-links-container">
+              <div class="name-links">
+                <label for="name">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name *"
+                    oninput="generateJson()"
+                  />
+                </label>
+                <label for="link">
+                  <input
+                    type="text"
+                    name="link"
+                    placeholder="Link *"
+                    oninput="generateJson()"
+                  />
+                </label>
+              </div>
+              <button id="remove">REMOVE</button>
+            </div>
+            <button id="add">ADD</button>
+          </form>
+          <div class="pc-int-question">
+            <input type="checkbox" name="question" id="question" />
+            <p>Have a computer and internet</p>
+          </div>
+          <button id="submit">SUBMIT</button>
         </form>
       </section>
     </div>
+    
 
-    <script src="app.js"></script>
+      <script src="app.js" type="module"></script>
   </body>
 </html>
