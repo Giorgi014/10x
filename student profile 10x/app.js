@@ -78,9 +78,10 @@ editor.commands.addCommand({
   },
 });
 
-editor.on("change", function () {
+// editor.on("change", function () {
+document.getElementById('editor').addEventListener('input', () =>{
   const currentCode = editor.getValue();
-  if (!currentCode) return;
+  // if (!currentCode) return;
   try {
     const updatedJson = JSON.parse(currentCode);
     jsonLd.properties = updatedJson.properties;
