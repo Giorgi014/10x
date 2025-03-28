@@ -4,52 +4,116 @@ const jsonLd = {
     {
       type: "string",
       name: "full-name",
-      label: "Full Name",
+      label: "full-name",
       required: true,
       value: "",
     },
-    { type: "email", name: "email", label: "Email", required: true, value: "" },
-    { type: "string", name: "phone", label: "Phone", value: "" },
+    {
+      type: "email",
+      name: "email",
+      label: "Email",
+      required: true,
+      value: "",
+    },
+    {
+      type: "tel",
+      name: "phone",
+      label: "phone",
+      value: "",
+    },
+    {
+      type: "number",
+      name: "finished-university-years",
+      label: "finished-university",
+      value: "",
+    },
     {
       type: "select",
       name: "country",
       select: "country",
+      option: [
+        {
+          type: "select",
+          name: "geo",
+          option: "geo",
+          value: "",
+        },
+        {
+          type: "select",
+          name: "usa",
+          option: "usa",
+          value: "",
+        },
+        {
+          type: "select",
+          name: "uk",
+          option: "uk",
+          value: "",
+        },
+      ],
+    },
+    {
+      type: "string",
+      name: "technology",
+      label: "technology",
       value: "",
     },
-    { type: "select", name: "geo", select: "country", value: "" },
-    { type: "select", name: "usa", select: "country", value: "" },
-    { type: "select", name: "uk", select: "country", value: "" },
+
     {
       type: "number",
-      name: "finished-university-years",
-      label: "Finished University Years",
+      name: "experience",
+      label: "experience",
       value: "",
     },
-    { type: "string", name: "technology", label: "Technology", value: "" },
-    { type: "number", name: "experience", label: "Experience", value: "" },
     {
       type: "string",
       name: "current-job",
-      label: "Current Job Position",
+      label: "current-job-position",
       value: "",
     },
     {
       type: "string",
       name: "plans-for-the-next-year",
-      label: "Plans for the next year",
+      label: "plans-for-the-next-year",
       value: "",
     },
-    { type: "string", name: "github", label: "GitHub", value: "" },
-    { type: "string", name: "linkedin", label: "LinkedIn", value: "" },
+    {
+      type: "string",
+      name: "github",
+      label: "github-profile",
+      value: "",
+    },
+
+    {
+      type: "string",
+      name: "linkedin",
+      label: "linkedin-profile",
+      value: "",
+    },
     {
       type: "string",
       name: "public-website",
-      label: "Public Website",
+      label: "public-website",
       value: "",
     },
-    { type: "string", name: "cv", label: "CV Link", value: "" },
-    { type: "string", name: "name", label: "Project Name", value: "" },
-    { type: "string", name: "link", label: "Project Link", value: "" },
+    {
+      type: "string",
+      name: "cv",
+      label: "link-cv",
+      value: "",
+    },
+    {
+      type: "string",
+      name: "name",
+      label: "name",
+      value: "",
+    },
+    {
+      type: "string",
+      name: "link",
+      label: "link",
+      value: "",
+    },
   ],
 };
 
@@ -58,7 +122,7 @@ editor.setTheme("ace/theme/github");
 editor.session.setMode("ace/mode/json");
 
 const jsonLdString = JSON.stringify(jsonLd, null, 2);
-editor.setValue(jsonLdString, -1);
+editor.setValue(jsonLdString);
 
 editor.commands.addCommand({
   name: "formatCode",
@@ -76,19 +140,6 @@ editor.commands.addCommand({
       alert("Invalid JSON");
     }
   },
-});
-
-// editor.on("change", function () {
-document.getElementById('editor').addEventListener('input', () =>{
-  const currentCode = editor.getValue();
-  // if (!currentCode) return;
-  try {
-    const updatedJson = JSON.parse(currentCode);
-    jsonLd.properties = updatedJson.properties;
-    updateInputsFromJson();
-  } catch (error) {
-    console.error("Invalid JSON", error);
-  }
 });
 
 function generateJson() {
@@ -119,6 +170,18 @@ function updateInputsFromJson() {
     }
   });
 }
+
+document.getElementById("editor").addEventListener("input", () => {
+  const currentCode = editor.getValue();
+  if (!currentCode) return;
+  try {
+    const updatedJson = JSON.parse(currentCode);
+    jsonLd.properties = updatedJson.properties;
+    updateInputsFromJson();
+  } catch (error) {
+    console.error("Invalid JSON", error);
+  }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   updateInputsFromJson();
