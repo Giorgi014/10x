@@ -9,7 +9,7 @@ const jsonLd = {
       value: "",
     },
     {
-      type: "email",
+      type: "string",
       name: "email",
       label: "Email",
       required: true,
@@ -30,22 +30,22 @@ const jsonLd = {
     {
       type: "select",
       name: "country",
-      select: "country",
+      select: "all-country",
       option: [
         {
-          type: "select",
+          type: "option",
           name: "geo",
           option: "geo",
           value: "",
         },
         {
-          type: "select",
+          type: "option",
           name: "usa",
           option: "usa",
           value: "",
         },
         {
-          type: "select",
+          type: "option",
           name: "uk",
           option: "uk",
           value: "",
@@ -152,6 +152,15 @@ function generateJson() {
   editor.setValue(JSON.stringify(jsonLd, null, 2), -1);
 }
 
+function selectJson() {
+  jsonLd.properties.forEach((field) => {
+    const select = document.querySelector(`[name='${field.name}']`);
+    if (select) {
+      field.value = select.value;
+    }
+  });
+}
+
 function updateInputsFromJson() {
   jsonLd.properties.forEach((field) => {
     const input = document.querySelector(`[name='${field.name}']`);
@@ -166,9 +175,23 @@ function updateInputsFromJson() {
         input.replaceWith(newInput);
       } else {
         input.value = field.value;
+        input.setAttribute("type", field.type);
       }
     }
   });
+}
+function updateSelectFromJson() {
+  jsonLd.properties.forEach((field) => {
+    const select = document.querySelector(`[name='${field.name}']`);
+    if (select) {
+      if (select.tagName === "SELECT") {
+        field.value = select.options[select.selectedIndex].value;
+      } else {
+        field.value = select.value;
+      }
+    }
+  });
+  editor.setValue(JSON.stringify(jsonLd, null, 2), -1);
 }
 
 document.getElementById("editor").addEventListener("input", () => {
@@ -185,5 +208,7 @@ document.getElementById("editor").addEventListener("input", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   updateInputsFromJson();
+  updateSelectFromJson();
   generateJson();
+  selectJson();
 });
