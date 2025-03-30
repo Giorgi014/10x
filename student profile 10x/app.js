@@ -9,7 +9,7 @@ const jsonLd = {
       value: "",
     },
     {
-      type: "string",
+      type: "email",
       name: "email",
       label: "Email",
       required: true,
@@ -32,6 +32,12 @@ const jsonLd = {
       name: "country",
       select: "all-country",
       option: [
+        {
+          type: "option",
+          name: "country",
+          option: "country",
+          value: "",
+        },
         {
           type: "option",
           name: "geo",

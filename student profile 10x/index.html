@@ -27,13 +27,14 @@
           <label for="Email">
             <input
               type="email"
+              id="email"
               name="email"
               placeholder="Email *"
               oninput="generateJson()"
             />
           </label>
           <label>
-            <select name="all-country" onselect="generateJson()">
+            <select name="all-country" onchange="selectJson()">
               <option value="country">Country</option>
               <option value="geo">Georgia</option>
               <option value="usa">United States of America</option>
@@ -42,7 +43,7 @@
           </label>
           <label for="phone">
             <input
-              type="tel"
+              type="number"
               name="phone"
               placeholder="Phone *"
               oninput="generateJson()"
@@ -174,6 +175,7 @@
     </div>
     
 
-      <script src="app.js" type="module"></script>
+      <script src="app.js"></script>
+      <!-- <script src="app.js" type="module"></script> -->
   </body>
 </html>
