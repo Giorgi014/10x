@@ -58,18 +58,42 @@ const jsonLd = {
         },
       ],
     },
+    // {
+    //   type: "string",
+    //   name: "technology",
+    //   label: "technology",
+    //   value: "",
+    // },
+    // {
+    //   type: "number",
+    //   name: "experience",
+    //   label: "experience",
+    //   value: "",
+    // },
     {
-      type: "string",
-      name: "technology",
+      type: "array",
+      name: "primary",
       label: "technology",
-      value: "",
-    },
-
-    {
-      type: "number",
-      name: "experience",
-      label: "experience",
-      value: "",
+      item: [
+        {
+          type: "object",
+          name: "technology",
+          properties: [
+            {
+              type: "string",
+              label: "technology",
+              name: "technology",
+              value: "",
+            },
+            {
+              type: "number",
+              label: "experience",
+              name: "experience",
+              value: "",
+            },
+          ],
+        },
+      ],
     },
     {
       type: "string",
@@ -184,13 +208,14 @@ function updateInputsFromJson() {
         input.setAttribute("type", field.type);
       }
     }
+    
   });
 }
 function updateSelectFromJson() {
   jsonLd.properties.forEach((field) => {
     const select = document.querySelector(`[name='${field.name}']`);
     if (select) {
-      if (select.tagName === "SELECT") {
+      if (select.tagName === "select") {
         field.value = select.options[select.selectedIndex].value;
       } else {
         field.value = select.value;
@@ -217,4 +242,63 @@ document.addEventListener("DOMContentLoaded", () => {
   updateSelectFromJson();
   generateJson();
   selectJson();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const addButton = document.getElementById("add");
+  const technologiesContainer = document.querySelector(".primary-technologies");
+
+  addButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    const primaryDiv = document.createElement("div");
+    primaryDiv.classList.add("primary");
+
+    const techInput = Object.assign(document.createElement("input"), {
+      type: "text",
+      name: "technology",
+      placeholder: "Technology *",
+      oninput: generateJson,
+    });
+
+    const expInput = Object.assign(document.createElement("input"), {
+      type: "number",
+      name: "experience",
+      placeholder: "Experience (years) *",
+      oninput: generateJson,
+    });
+
+    const removeButton = Object.assign(document.createElement("button"), {
+      textContent: "remove",
+      onclick: () => {
+        primaryDiv.remove();
+        generateJson();
+      },
+    });
+
+    primaryDiv.append(techInput, expInput, removeButton);
+    technologiesContainer.appendChild(primaryDiv);
+
+    jsonLd.properties
+      .find((field) => field.name === "primary")
+      .item.push({
+        type: "object",
+        name: "technology",
+        properties: [
+          {
+            type: "string",
+            label: "technology",
+            name: "technology",
+            value: "",
+          },
+          {
+            type: "number",
+            label: "experience",
+            name: "experience",
+            value: "",
+          },
+        ],
+      });
+
+    generateJson();
+  });
 });
