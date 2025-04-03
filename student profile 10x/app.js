@@ -186,7 +186,11 @@ function generateJson() {
 
         if (techInput && expInput) {
           field.value.push({
+            type: techInput.type,
+            placeholder: techInput.placeholder,
             technology: techInput.value,
+            type: expInput.type,
+            placeholder: expInput.placeholder,
             experience: expInput.value,
           });
         }
@@ -201,7 +205,7 @@ function selectJson() {
   jsonLd.properties.forEach((field) => {
     const select = document.querySelector(`[name='${field.name}']`);
     if (select) {
-      field.value = select.value;
+      field.option = select.option;
     }
   });
 }
@@ -260,33 +264,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  // const addButton = document.getElementById("add");
+  
   document.getElementById("add").addEventListener("click", (event) => {
     event.preventDefault();
     const technologiesContainer = document.querySelector(".primary-technologies");
     const primaryDiv = document.createElement("div");
     primaryDiv.classList.add("primary");
 
-    const techInput = document.createElement("input");
-    techInput.type = "text";
-    techInput.name = "technology";
-    techInput.placeholder = "Technology *";
-    techInput.oninput = generateJson;
+    const techInput = document.createElement("input")
+      techInput.type = "text";
+      techInput.name = "technology";
+      techInput.placeholder = "Technology *";
+      techInput.oninput = generateJson;
 
-    const expInput = document.createElement("input");
-    expInput.type = "number";
-    expInput.name = "experience";
-    expInput.placeholder = "Experience (years) *";
-    expInput.oninput = generateJson;
+    const expInput = document.createElement("input")
+      expInput.type = "number";
+      expInput.name = "experience";
+      expInput.placeholder = "Experience (years) *";
+      expInput.oninput = generateJson;
 
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "REMOVE";
-    removeButton.classList.add("remove-button");
-    removeButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      primaryDiv.remove();
-      generateJson();
-    });
 
+    const removeButton = document.createElement("button")
+      removeButton.textContent = "remove";
+      removeButton.onclick = () => {
+        primaryDiv.remove();
+        techInput.remove();
+        expInput.remove();
+        generateJson();
+      }
     primaryDiv.append(techInput, expInput, removeButton);
     technologiesContainer.appendChild(primaryDiv);
 
