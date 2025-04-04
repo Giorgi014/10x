@@ -58,42 +58,30 @@ const jsonLd = {
         },
       ],
     },
-    // {
-    //   type: "string",
-    //   name: "technology",
-    //   label: "technology",
-    //   value: "",
-    // },
-    // {
-    //   type: "number",
-    //   name: "experience",
-    //   label: "experience",
-    //   value: "",
-    // },
     {
       type: "array",
       name: "primary",
-      label: "technology",
-      item: [
-        {
-          type: "object",
-          name: "technology",
-          properties: [
-            {
-              type: "string",
-              label: "technology",
-              name: "technology",
-              value: "",
-            },
-            {
-              type: "number",
-              label: "experience",
-              name: "experience",
-              value: "",
-            },
-          ],
-        },
-      ],
+      label: "technologies",
+      item: [],
+        // {
+        //   type: "object",
+        //   name: "technology",
+        //   properties: [
+        //     {
+        //       type: "string",
+        //       label: "technology",
+        //       name: "technology",
+        //       value: "",
+        //     },
+        //     {
+        //       type: "number",
+        //       label: "experience",
+        //       name: "experience",
+        //       value: "",
+        //     },
+        //   ],
+        // },
+      // ],
     },
     {
       type: "string",
@@ -175,6 +163,7 @@ editor.commands.addCommand({
 function generateJson() {
   jsonLd.properties.forEach((field) => {
     const input = document.querySelector(`[name='${field.name}']`);
+    // const primary = document.querySelector(`[name='${field.name}']`);
     if (input) {
       field.value = input.value;
     }
@@ -184,14 +173,20 @@ function generateJson() {
         const techInput = primaryDiv.querySelector("input[name='technology']");
         const expInput = primaryDiv.querySelector("input[name='experience']");
 
-        if (techInput && expInput) {
+        if (techInput) {
           field.value.push({
             type: techInput.type,
-            placeholder: techInput.placeholder,
-            technology: techInput.value,
+            label: techInput.name,
+            name: techInput.name,
+            value: techInput.value,
+          });
+        }
+        if (expInput) {
+          field.value.push({
             type: expInput.type,
-            placeholder: expInput.placeholder,
-            experience: expInput.value,
+            label: expInput.name,
+            name: expInput.name,
+            value: expInput.value,
           });
         }
       });
@@ -213,6 +208,8 @@ function selectJson() {
 function updateInputsFromJson() {
   jsonLd.properties.forEach((field) => {
     const input = document.querySelector(`[name='${field.name}']`);
+    // const techInput = document.querySelector(`[name='${field.name}']`);
+        // const expInput = document.querySelector(`[name='${field.name}']`);
     if (input) {
       if (input.type !== field.type) {
         const newInput = document.createElement("input");
@@ -227,7 +224,20 @@ function updateInputsFromJson() {
         input.setAttribute("type", field.type);
       }
     }
-    
+    // if (techInput) {
+    //   if (techInput.type !== field.type) {
+    //     const newTechInput = document.createElement("input");
+    //     newTechInput.type = field.type;
+    //     newTechInput.name = field.name;
+    //     newTechInput.value = field.value;
+    //     newTechInput.placeholder = field.label;
+    //     newTechInput.oninput = generateJson;
+    //     techInput.replaceWith(newTechInput);
+    //   } else {
+    //     techInput.value = field.value;
+    //     techInput.setAttribute("type", field.type);
+    //   }
+    // }
   });
 }
 function updateSelectFromJson() {
@@ -257,13 +267,6 @@ document.getElementById("editor").addEventListener("input", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  updateInputsFromJson();
-  updateSelectFromJson();
-  generateJson();
-  selectJson();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("add").addEventListener("click", (event) => {
     event.preventDefault();
     const technologiesContainer = document.querySelector(".primary-technologies");
@@ -271,15 +274,15 @@ document.addEventListener("DOMContentLoaded", () => {
     primaryDiv.classList.add("primary");
 
     const techInput = document.createElement("input");
-    techInput.type = "text";
+    techInput.type = "string";
     techInput.name = "technology";
-    techInput.placeholder = "Technology *";
+    techInput.placeholder = "Technology";
     techInput.oninput = generateJson;
 
     const expInput = document.createElement("input");
     expInput.type = "number";
     expInput.name = "experience";
-    expInput.placeholder = "Experience (years) *";
+    expInput.placeholder = "Experience";
     expInput.oninput = generateJson;
 
     const techLabel = document.createElement("label");
@@ -313,14 +316,22 @@ document.addEventListener("DOMContentLoaded", () => {
     generateJson();
   });
 
-  document.getElementById("#remove").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-      const primaryDiv = event.target.closest(".primary");
-      if (primaryDiv) {
-        primaryDiv.remove();
-        generateJson();
-      }
-    });
-  });
+  // document.getElementById("remove").forEach((button) => {
+  //   button.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     const primaryDiv = event.target.closest(".primary");
+  //     if (primaryDiv) {
+  //       primaryDiv.remove();
+  //       generateJson();
+  //     }
+  //   });
+  // });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateInputsFromJson();
+  updateSelectFromJson();
+  generateJson();
+  selectJson();
 });

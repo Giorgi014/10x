@@ -107,6 +107,7 @@ button {
   align-items: flex-start;
   position: relative;
   flex-direction: column;
+  gap: 10px;
 }
 .main-container .student-container .primary-and-technologies .primary-technologies .primary {
   width: 80%;
