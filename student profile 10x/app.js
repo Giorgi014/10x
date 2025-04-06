@@ -1,3 +1,9 @@
+// let countries = 'country';
+// const dropDown = document.getElementById('countries');
+// dropDown.addEventListener('change',function(e){
+//     countries = e.target.value;
+// })
+
 const jsonLd = {
   type: "object",
   properties: [
