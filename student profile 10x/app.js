@@ -1,9 +1,3 @@
-// let countries = 'country';
-// const dropDown = document.getElementById('countries');
-// dropDown.addEventListener('change',function(e){
-//     countries = e.target.value;
-// })
-
 const jsonLd = {
   type: "object",
   properties: [
@@ -41,26 +35,18 @@ const jsonLd = {
         {
           type: "option",
           name: "country",
-          option: "country",
-          value: "",
         },
         {
           type: "option",
           name: "geo",
-          option: "geo",
-          value: "",
         },
         {
           type: "option",
           name: "usa",
-          option: "usa",
-          value: "",
         },
         {
           type: "option",
           name: "uk",
-          option: "uk",
-          value: "",
         },
       ],
     },
@@ -173,6 +159,12 @@ function generateJson() {
     if (input) {
       field.value = input.value;
     }
+    if (field.type === "select") {
+      const select = document.querySelector(`[name='${field.select}']`);
+      if (select) {
+        field.value = select.value;
+      }
+    }
     if (field.name === "primary") {
       field.value = [];
       document.querySelectorAll(".primary").forEach((primaryDiv) => {
@@ -200,15 +192,6 @@ function generateJson() {
   
   });
   editor.setValue(JSON.stringify(jsonLd, null, 2), -1);
-}
-
-function selectJson() {
-  jsonLd.properties.forEach((field) => {
-    const select = document.querySelector(`[name='${field.name}']`);
-    if (select) {
-      field.option = select.option;
-    }
-  });
 }
 
 function updateInputsFromJson() {
@@ -339,5 +322,4 @@ document.addEventListener("DOMContentLoaded", () => {
   updateInputsFromJson();
   updateSelectFromJson();
   generateJson();
-  selectJson();
 });
