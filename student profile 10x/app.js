@@ -33,20 +33,16 @@ const jsonLd = {
       select: "all-country",
       option: [
         {
-          type: "option",
-          name: "country",
+          value: "geo",
+          label: "Georgia",
         },
         {
-          type: "option",
-          name: "geo",
+          value: "usa",
+          label: "United States",
         },
         {
-          type: "option",
-          name: "usa",
-        },
-        {
-          type: "option",
-          name: "uk",
+          value: "uk",
+          label: "United Kingdom",
         },
       ],
     },
