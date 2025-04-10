@@ -48,8 +48,8 @@ const jsonLd = {
     },
     {
       type: "array",
-      name: "primary",
-      // label: "technologies",
+      name: "technologies",
+      label: "primary",
       item: [
         {
           type: "object",
@@ -160,26 +160,32 @@ function generateJson() {
         field.value = select.value;
       }
     }
-    if(field.name === "primary"){
-      const primary = document.querySelector(`[name='${field.select}']`);
-      if (primary) {
-        field.value = primary.value;
-      }
+    if (field.name === "technologies") {
+      field.item = [];
+      const techInputs = document.querySelectorAll(".primary input[name='technology']");
+      const expInputs = document.querySelectorAll(".primary input[name='experience']");
+      
+      techInputs.forEach((techInput, index) => {
+        field.item.push({
+          type: "object",
+          name: "technology",
+          properties: [
+            {
+              type: "string",
+              label: "technology",
+              name: "technology",
+              value: techInput.value
+            },
+            {
+              type: "number",
+              label: "experience",
+              name: "experience",
+              value: expInputs[index]?.value || ""
+            }
+          ]
+        });
+      });
     }
-    // if (field.name === "primary") {
-    //   field.value = [];
-    //   document.querySelectorAll(".primary").forEach((primaryDiv) => {
-    //     const inputs = primaryDiv.querySelectorAll("input");
-    //     inputs.forEach((input) => {
-    //       field.value.push({
-    //         type: input.type,
-    //         label: input.name,
-    //         name: input.name,
-    //         value: input.value,
-    //       });
-    //     });
-    //   });
-    // }
   });
   editor.setValue(JSON.stringify(jsonLd, null, 2), -1);
 }
@@ -198,46 +204,32 @@ function updateInputsFromJson() {
         input.replaceWith(newInput);
       } else {
         input.value = field.value;
-        input.setAttribute("type", field.type);
+        // input.setAttribute("type", field.type);
       }
     }
-    //   if (field.name === "primary" && Array.isArray(field.value)) {
-    //     const container = document.querySelector(".primary-technologies");
-    //     container.innerHTML = ""; // წაშალე ძველი ელემენტები
-
-    //     for (let tech of field.value) {
-    //       const primaryDiv = document.createElement("div");
-    //       primaryDiv.classList.add("primary");
-
-    //       const input = document.createElement("input");
-    //       input.type = tech.type || "text";
-    //       input.name = tech.name;
-    //       input.value = tech.value || "";
-    //       input.placeholder = tech.label;
-    //       input.oninput = generateJson;
-
-    //       const label = document.createElement("label");
-    //       label.appendChild(input);
-    //       primaryDiv.appendChild(label);
-    //       container.appendChild(primaryDiv);
-    //     }
-    //   } else {
-    //     const input = document.querySelector(`[name='${field.name}']`);
-    //     if (input) {
-    //       if (input.type !== field.type) {
-    //         const newInput = document.createElement("input");
-    //         newInput.type = field.type;
-    //         newInput.name = field.name;
-    //         newInput.value = field.value;
-    //         newInput.placeholder = field.label;
-    //         newInput.oninput = generateJson;
-    //         input.replaceWith(newInput);
-    //       } else {
-    //         input.value = field.value;
-    //         input.setAttribute("type", field.type);
-    //       }
-    //     }
-    //   }
+    if (field.name === "technologies") {
+      const container = document.querySelector(".primary");
+      container.innerHTML = "";
+      
+      field.item.forEach((techObj, index) => {
+        techObj.properties.forEach((techField) => {
+          const primaryDiv = document.createElement("div");
+          primaryDiv.classList.add("primary-technologies");
+          
+          const input = document.createElement("input");
+          input.type = techField.type;
+          input.name = techField.name;
+          input.value = techField.value || "";
+          input.placeholder = techField.label || "";
+          input.oninput = generateJson;
+          
+          const label = document.createElement("label");
+          label.appendChild(input);
+          primaryDiv.appendChild(label);
+          container.appendChild(primaryDiv);
+        });
+      });
+      }
   });
 }
 document.getElementById("editor").addEventListener("input", () => {
@@ -304,27 +296,27 @@ document.addEventListener("DOMContentLoaded", () => {
     //     ],
     //   }
     // );
-    const primaryField = jsonLd.properties.find((f) => f.name === "primary");
-    if (primaryField && Array.isArray(primaryField.value)) {
-      primaryField.value.push({
-        type: "object",
-        name: "technology",
-        properties: [
-          {
-            type: "string",
-            label: "technology",
-            name: "technology",
-            value: "",
-          },
-          {
-            type: "number",
-            label: "experience",
-            name: "experience",
-            value: "",
-          },
-        ],
-      });
-    }
+    // const primaryField = jsonLd.properties.find((f) => f.name === "primary");
+    // if (primaryField && Array.isArray(primaryField.value)) {
+    //   primaryField.value.push({
+    //     type: "object",
+    //     name: "technology",
+    //     properties: [
+    //       {
+    //         type: "string",
+    //         label: "technology",
+    //         name: "technology",
+    //         value: "",
+    //       },
+    //       {
+    //         type: "number",
+    //         label: "experience",
+    //         name: "experience",
+    //         value: "",
+    //       },
+    //     ],
+    //   });
+    // }
 
     generateJson();
   });

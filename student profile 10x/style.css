@@ -93,7 +93,10 @@ button {
 .main-container .student-container .student-profile-info:not(h2) {
   align-items: flex-start;
 }
-.main-container .student-container .primary-and-technologies {
+.main-container .student-container .primary-and-technologies-main {
+  width: 100%;
+}
+.main-container .student-container .primary-and-technologies-main .primary-and-technologies {
   width: 100%;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -101,7 +104,7 @@ button {
   border: 1px solid rgb(167, 167, 167);
   border-radius: 5px;
 }
-.main-container .student-container .primary-and-technologies .primary-technologies {
+.main-container .student-container .primary-and-technologies-main .primary-and-technologies .primary-technologies {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -109,13 +112,13 @@ button {
   flex-direction: column;
   gap: 10px;
 }
-.main-container .student-container .primary-and-technologies .primary-technologies .primary {
+.main-container .student-container .primary-and-technologies-main .primary-and-technologies .primary-technologies .primary {
   width: 80%;
   box-shadow: 0px 0px 10px 1px rgb(178, 178, 178);
   border-radius: 5px;
   padding: 30px 10px;
 }
-.main-container .student-container .primary-and-technologies .primary-technologies #remove {
+.main-container .student-container .primary-and-technologies-main .primary-and-technologies .primary-technologies #remove {
   position: absolute;
   right: 0px;
   top: 50%;
