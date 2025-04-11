@@ -198,18 +198,12 @@ function generateJson() {
     }
     if (field.name === "links") {
       field.properties = [];
-      // const input = document.querySelector(`[name='${field.name}']`);
-      // if (input) {
-      //   field.value = input.value;
-      // }
-      const linkInputs = document.querySelectorAll(
-        ".links input[name='links']"
-      );
-      // const expInputs = document.querySelectorAll(
-      //   ".primary input[name='experience']"
-      // );
+      const linkInputs = document.querySelectorAll(".links input[name='github']");
+      const linkedin = document.querySelectorAll(".links input[name='linkedin']");
+      const publicWebsite = document.querySelectorAll(".links input[name='public-website']");
+      const cv = document.querySelectorAll(".links input[name='cv']");
 
-      linkInputs.forEach((values) => {
+      linkInputs.forEach((values, index) => {
         field.properties.push({
           type: "object",
           name: "links",
@@ -225,19 +219,19 @@ function generateJson() {
               type: "string",
               name: "linkedin",
               label: "linkedin-profile",
-              value: "",
+              value: linkedin[index]?.value || "",
             },
             {
               type: "string",
               name: "public-website",
               label: "public-website",
-              value: "",
+              value: publicWebsite[index]?.value || "",
             },
             {
               type: "string",
               name: "cv",
               label: "link-cv",
-              value: "",
+              value: cv[index]?.value || "",
             },
           ],
         });
@@ -287,6 +281,29 @@ function updateInputsFromJson() {
         });
       });
     }
+    // if (field.name === "links") {
+    //   const container = document.querySelector(".links");
+    //   container.innerHTML = "";
+    
+    //   field.properties.forEach((field) => {
+    //     field.properties.forEach((linkField) => {
+    //       const linkDiv = document.createElement("div");
+    //       linkDiv.classList.add("link-field");
+    
+    //       const input = document.createElement("input");
+    //       input.type = linkField.type;
+    //       input.name = linkField.name;
+    //       input.value = linkField.value || "";
+    //       input.placeholder = linkField.label || "";
+    //       input.oninput = generateJson;
+    
+    //       const label = document.createElement("label");
+    //       label.appendChild(input);
+    //       linkDiv.appendChild(label);
+    //       container.appendChild(linkDiv);
+    //     });
+    //   });
+    // }
   });
 }
 document.getElementById("editor").addEventListener("input", () => {
