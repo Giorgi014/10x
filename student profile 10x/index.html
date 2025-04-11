@@ -57,10 +57,7 @@
               oninput="generateJson()"
             />
           </label>
-          <div
-            action="primary-technologies-container"
-            class="primary-and-technologies-main"
-          >
+          <div class="primary-and-technologies-main">
             <div class="primary-and-technologies">
               <h2>Primary technologies</h2>
               <div class="primary-technologies">
@@ -84,9 +81,9 @@
                     />
                   </label>
                 </label>
-                <button id="remove">REMOVE</button>
+                <button id="remove" onclick="removeButton(event)">REMOVE</button>
               </div>
-              <button id="add">ADD</button>
+              <button id="add" onclick="addButton(event)">ADD</button>
             </div>
             <label for="current-job-position">
               <input
@@ -105,7 +102,7 @@
               />
             </label>
           </div>
-          <form action="links" class="links">
+          <div class="links">
             <h2>Links</h2>
             <label class="github-profile">
               <input
@@ -139,8 +136,8 @@
                 oninput="generateJson()"
               />
             </label>
-          </form>
-          <form action="your-projects" class="your-projects">
+          </div>
+          <div class="your-projects">
             <h2>Links to your projects</h2>
             <div class="name-links-container">
               <div class="name-links">
@@ -164,7 +161,7 @@
               <button id="remove">REMOVE</button>
             </div>
             <button id="add">ADD</button>
-          </form>
+          </div>
           <div class="pc-int-question">
             <input type="checkbox" name="question" id="question" />
             <p>Have a computer and internet</p>

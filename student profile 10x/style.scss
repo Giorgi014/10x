@@ -95,21 +95,15 @@ button {
         border: 1px solid rgb(167, 167, 167);
         border-radius: 5px;
         .primary-technologies {
-          @include displaycenter(space-between, flex-start);
+          @include displaycenter(space-between, center);
           position: relative;
-          flex-direction: column;
           gap: 10px;
           .primary {
             width: 80%;
             box-shadow: 0px 0px 10px 1px rgb(178, 178, 178);
             border-radius: 5px;
             padding: 30px 10px;
-          }
-          #remove{
-            position: absolute;
-            right: 0px;
-            top: 50%;
-            transform: translateY(-50%);
+            margin-bottom: 20px;
           }
         }
       }

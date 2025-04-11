@@ -107,9 +107,8 @@ button {
 .main-container .student-container .primary-and-technologies-main .primary-and-technologies .primary-technologies {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
-  flex-direction: column;
   gap: 10px;
 }
 .main-container .student-container .primary-and-technologies-main .primary-and-technologies .primary-technologies .primary {
@@ -117,12 +116,7 @@ button {
   box-shadow: 0px 0px 10px 1px rgb(178, 178, 178);
   border-radius: 5px;
   padding: 30px 10px;
-}
-.main-container .student-container .primary-and-technologies-main .primary-and-technologies .primary-technologies #remove {
-  position: absolute;
-  right: 0px;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-bottom: 20px;
 }
 .main-container .student-container .links {
   width: 100%;
