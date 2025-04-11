@@ -141,26 +141,28 @@
             <h2>Links to your projects</h2>
             <div class="name-links-container">
               <div class="name-links">
-                <label for="name">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Name *"
-                    oninput="generateJson()"
-                  />
-                </label>
-                <label for="link">
-                  <input
-                    type="text"
-                    name="link"
-                    placeholder="Link *"
-                    oninput="generateJson()"
-                  />
-                </label>
+              <label for="name-and-links">
+                  <label for="name">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name *"
+                      oninput="generateJson()"
+                    />
+                  </label>
+                  <label for="link">
+                    <input
+                      type="text"
+                      name="link"
+                      placeholder="Link *"
+                      oninput="generateJson()"
+                    />
+                  </label>
+              </label>
               </div>
               <button id="remove">REMOVE</button>
             </div>
-            <button id="add">ADD</button>
+            <button id="add-btn" onclick="addBtn(event)">ADD</button>
           </div>
           <div class="pc-int-question">
             <input type="checkbox" name="question" id="question" />

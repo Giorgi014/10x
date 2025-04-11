@@ -115,16 +115,29 @@ const jsonLd = {
       ],
     },
     {
-      type: "string",
-      name: "name",
-      label: "name",
-      value: "",
-    },
-    {
-      type: "string",
-      name: "link",
-      label: "link",
-      value: "",
+      type: "array",
+      name: "projects",
+      label: "Links to your projects",
+      item: [
+        {
+          type: "object",
+          name: "project",
+          properties: [
+            {
+              type: "string",
+              name: "name",
+              label: "name",
+              value: "",
+            },
+            {
+              type: "string",
+              name: "link",
+              label: "link",
+              value: "",
+            },
+          ],
+        },
+      ],
     },
   ],
 };
@@ -198,9 +211,15 @@ function generateJson() {
     }
     if (field.name === "links") {
       field.properties = [];
-      const linkInputs = document.querySelectorAll(".links input[name='github']");
-      const linkedin = document.querySelectorAll(".links input[name='linkedin']");
-      const publicWebsite = document.querySelectorAll(".links input[name='public-website']");
+      const linkInputs = document.querySelectorAll(
+        ".links input[name='github']"
+      );
+      const linkedin = document.querySelectorAll(
+        ".links input[name='linkedin']"
+      );
+      const publicWebsite = document.querySelectorAll(
+        ".links input[name='public-website']"
+      );
       const cv = document.querySelectorAll(".links input[name='cv']");
 
       linkInputs.forEach((values, index) => {
@@ -232,6 +251,36 @@ function generateJson() {
               name: "cv",
               label: "link-cv",
               value: cv[index]?.value || "",
+            },
+          ],
+        });
+      });
+    }
+    if (field.name === "projects") {
+      field.item = [];
+      const nameInput = document.querySelectorAll(
+        ".name-links input[name='name']"
+      );
+      const linknputs = document.querySelectorAll(
+        ".name-links input[name='link']"
+      );
+
+      nameInput.forEach((nameLinks, index) => {
+        field.item.push({
+          type: "object",
+          name: "project",
+          properties: [
+            {
+              type: "string",
+              name: "name",
+              label: "name",
+              value: nameLinks.value,
+            },
+            {
+              type: "string",
+              name: "link",
+              label: "link",
+              value: linknputs[index]?.value || "",
             },
           ],
         });
@@ -284,19 +333,19 @@ function updateInputsFromJson() {
     // if (field.name === "links") {
     //   const container = document.querySelector(".links");
     //   container.innerHTML = "";
-    
+
     //   field.properties.forEach((field) => {
     //     field.properties.forEach((linkField) => {
     //       const linkDiv = document.createElement("div");
     //       linkDiv.classList.add("link-field");
-    
+
     //       const input = document.createElement("input");
     //       input.type = linkField.type;
     //       input.name = linkField.name;
     //       input.value = linkField.value || "";
     //       input.placeholder = linkField.label || "";
     //       input.oninput = generateJson;
-    
+
     //       const label = document.createElement("label");
     //       label.appendChild(input);
     //       linkDiv.appendChild(label);
@@ -304,6 +353,29 @@ function updateInputsFromJson() {
     //     });
     //   });
     // }
+    if (field.name === "projects") {
+      const container = document.querySelector(".name-links");
+      container.innerHTML = "";
+
+      field.item.forEach((techObj) => {
+        techObj.properties.forEach((techField) => {
+          const primaryDiv = document.createElement("div");
+          primaryDiv.classList.add("name-links-container");
+
+          const input = document.createElement("input");
+          input.type = techField.type;
+          input.name = techField.name;
+          input.value = techField.value || "";
+          input.placeholder = techField.label || "";
+          input.oninput = generateJson;
+
+          const label = document.createElement("label");
+          label.appendChild(input);
+          primaryDiv.appendChild(label);
+          container.appendChild(primaryDiv);
+        });
+      });
+    }
   });
 }
 document.getElementById("editor").addEventListener("input", () => {
@@ -371,6 +443,50 @@ function removeButton(event) {
     primaryTechnologiesDiv.remove();
     generateJson();
   }
+}
+function addBtn(event) {
+  event.preventDefault();
+  const nameLinks = document.querySelector(
+    ".name-links-container"
+  );
+  const wrapperDiv = document.createElement("div");
+  wrapperDiv.classList.add("name-and-links");
+
+  const primaryDiv = document.createElement("label");
+  primaryDiv.classList.add("name-links");
+
+  const nameInput = document.createElement("input");
+  nameInput.type = "number";
+  nameInput.name = "name";
+  nameInput.placeholder = "Name";
+  nameInput.oninput = generateJson;
+
+  const linkInput = document.createElement("input");
+  linkInput.type = "string";
+  linkInput.name = "link";
+  linkInput.placeholder = "link";
+  linkInput.oninput = generateJson;
+
+  const nameLabel = document.createElement("label");
+  nameLabel.appendChild(nameInput);
+
+  const linkLabel = document.createElement("label");
+  linkLabel.appendChild(linkInput);
+
+  primaryDiv.append(nameLabel, linkLabel);
+  nameLinks.appendChild(primaryDiv);
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "REMOVE";
+  removeBtn.onclick = removeButton;
+
+  wrapperDiv.appendChild(primaryDiv);
+  wrapperDiv.appendChild(removeBtn);
+
+  nameLinks.insertBefore(
+    wrapperDiv,
+    document.getElementById("add")
+  );
+  generateJson();
 }
 document.addEventListener("DOMContentLoaded", () => {
   updateInputsFromJson();
