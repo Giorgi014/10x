@@ -147,6 +147,7 @@ const jsonLd = {
     },
   ],
 };
+// import { jsonLd } from './jsonld.js';
 
 const editor = ace.edit("editor");
 editor.setTheme("ace/theme/github");
@@ -200,15 +201,15 @@ function generateJson() {
           name: "technology",
           properties: [
             {
-              type: "string",
+              type: techInput.type,
               label: "technology",
-              name: "technology",
+              name: techInput.name,
               value: techInput.value,
             },
             {
-              type: "number",
+              type: expInputs[index]?.type,
               label: "experience",
-              name: "experience",
+              name: expInputs[index]?.name,
               value: expInputs[index]?.value || "",
             },
           ],
@@ -229,11 +230,7 @@ function generateJson() {
       const cv = document.querySelectorAll(".links input[name='cv']");
 
       linkInputs.forEach((values, index) => {
-        field.properties.push({
-          type: "object",
-          name: "links",
-          label: "Links",
-          properties: [
+        field.properties.push(
             {
               type: "string",
               name: "github",
@@ -258,8 +255,7 @@ function generateJson() {
               label: "link-cv",
               value: cv[index]?.value || "",
             },
-          ],
-        });
+        );
       });
     }
     if (field.name === "projects") {
@@ -277,13 +273,13 @@ function generateJson() {
           name: "project",
           properties: [
             {
-              type: "string",
+              type: nameLinks.type,
               name: "name",
               label: "name",
               value: nameLinks.value,
             },
             {
-              type: "string",
+              type: linknputs[index]?.type,
               name: "link",
               label: "link",
               value: linknputs[index]?.value || "",
@@ -346,27 +342,27 @@ function updateInputsFromJson() {
         });
       });
     }
-    // if (field.name === "links") {
-    //   const container = document.querySelector(".links");
-    //   container.innerHTML = "";
+    if (field.name === "links") {
+      const container = document.querySelector(".links");
+      container.innerHTML = "";
 
-    //     field.properties.forEach((linkField) => {
-    //       const linkDiv = document.createElement("div");
-    //       linkDiv.classList.add("link-field");
+        field.properties.forEach((linkField) => {
+          const linkDiv = document.createElement("div");
+          linkDiv.classList.add("links-cont");
 
-    //       const input = document.createElement("input");
-    //       input.type = linkField.type;
-    //       input.name = linkField.name;
-    //       input.value = linkField.value || "";
-    //       input.placeholder = linkField.label || "";
-    //       input.oninput = generateJson;
+          const input = document.createElement("input");
+          input.type = linkField.type;
+          input.name = linkField.name;
+          input.value = linkField.value || "";
+          input.placeholder = linkField.label || "";
+          input.oninput = generateJson;
 
-    //       const label = document.createElement("label");
-    //       label.appendChild(input);
-    //       linkDiv.appendChild(label);
-    //       container.appendChild(linkDiv);
-    //     });
-    // }
+          const label = document.createElement("label");
+          label.appendChild(input);
+          linkDiv.appendChild(label);
+          container.appendChild(linkDiv);
+        });
+    }
     if (field.name === "projects") {
       const container = document.querySelector(".name-links");
       container.innerHTML = "";

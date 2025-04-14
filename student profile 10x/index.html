@@ -81,7 +81,9 @@
                     />
                   </label>
                 </label>
-                <button id="remove" onclick="removeButton(event)">REMOVE</button>
+                <button id="remove" onclick="removeButton(event)">
+                  REMOVE
+                </button>
               </div>
               <button id="add" onclick="addButton(event)">ADD</button>
             </div>
@@ -102,46 +104,50 @@
               />
             </label>
           </div>
-          <div class="links">
+          <div class="links-container">
             <h2>Links</h2>
-            <label class="github-profile">
-              <input
-                type="text"
-                name="github"
-                placeholder="Github profile *"
-                oninput="generateJson()"
-              />
-            </label>
-            <label class="linkedin-profile">
-              <input
-                type="text"
-                name="linkedin"
-                placeholder="Linkedin profile"
-                oninput="generateJson()"
-              />
-            </label>
-            <label class="public-website">
-              <input
-                type="text"
-                name="public-website"
-                placeholder="Public website"
-                oninput="generateJson()"
-              />
-            </label>
-            <label class="link-cv">
-              <input
-                type="text"
-                name="cv"
-                placeholder="Link to CV"
-                oninput="generateJson()"
-              />
-            </label>
+            <div class="links">
+              <label for="links-cont" class="links-cont">
+                <label for="github-profile" class="github-profile">
+                  <input
+                    type="text"
+                    name="github"
+                    placeholder="Github profile *"
+                    oninput="generateJson()"
+                  />
+                </label>
+                <label for="linkedin-profile" class="linkedin-profile">
+                  <input
+                    type="text"
+                    name="linkedin"
+                    placeholder="Linkedin profile"
+                    oninput="generateJson()"
+                  />
+                </label>
+                <label for="public-website" class="public-website">
+                  <input
+                    type="text"
+                    name="public-website"
+                    placeholder="Public website"
+                    oninput="generateJson()"
+                  />
+                </label>
+                <label for="link-cv" class="link-cv">
+                  <input
+                    type="text"
+                    name="cv"
+                    placeholder="Link to CV"
+                    oninput="generateJson()"
+                  />
+                </label>
+              </label>
+            </div>
           </div>
           <div class="your-projects">
             <h2>Links to your projects</h2>
             <div class="name-links-container">
               <div class="name-links">
-              <label for="name-and-links">
+                <label for="name-and-links">
                   <label for="name">
                     <input
                       type="text"
@@ -158,7 +164,7 @@
                       oninput="generateJson()"
                     />
                   </label>
-              </label>
+                </label>
               </div>
               <button id="remove">REMOVE</button>
             </div>
@@ -172,9 +178,8 @@
         </form>
       </section>
     </div>
-    
 
-      <script src="app.js"></script>
-      <!-- <script src="app.js" type="module"></script> -->
+    <!-- <script src="app.js"></script> -->
+    <script src="app.js" type="module"></script>
   </body>
 </html>
