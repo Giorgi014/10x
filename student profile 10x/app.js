@@ -139,6 +139,12 @@ const jsonLd = {
         },
       ],
     },
+    {
+      type: "boolean",
+      name: "haveComputer",
+      label: "Have a computer and internet",
+      value: "",
+    },
   ],
 };
 
@@ -286,6 +292,16 @@ function generateJson() {
         });
       });
     }
+    const checkBox = document.getElementById("question");
+    if (field.name === "haveComputer") {
+      if (!checkBox.dataset.listenerAttached) {
+        checkBox.addEventListener("change", () => {
+          field.value = checkBox.checked ? "yes" : "no";
+          editor.setValue(JSON.stringify(jsonLd, null, 2), -1);
+        });
+        checkBox.dataset.listenerAttached = "true";
+      }
+    }
   });
   editor.setValue(JSON.stringify(jsonLd, null, 2), -1);
 }
@@ -334,7 +350,6 @@ function updateInputsFromJson() {
     //   const container = document.querySelector(".links");
     //   container.innerHTML = "";
 
-    //   field.properties.forEach((field) => {
     //     field.properties.forEach((linkField) => {
     //       const linkDiv = document.createElement("div");
     //       linkDiv.classList.add("link-field");
@@ -351,7 +366,6 @@ function updateInputsFromJson() {
     //       linkDiv.appendChild(label);
     //       container.appendChild(linkDiv);
     //     });
-    //   });
     // }
     if (field.name === "projects") {
       const container = document.querySelector(".name-links");
@@ -446,9 +460,7 @@ function removeButton(event) {
 }
 function addBtn(event) {
   event.preventDefault();
-  const nameLinks = document.querySelector(
-    ".name-links-container"
-  );
+  const nameLinks = document.querySelector(".name-links-container");
   const wrapperDiv = document.createElement("div");
   wrapperDiv.classList.add("name-and-links");
 
@@ -482,10 +494,7 @@ function addBtn(event) {
   wrapperDiv.appendChild(primaryDiv);
   wrapperDiv.appendChild(removeBtn);
 
-  nameLinks.insertBefore(
-    wrapperDiv,
-    document.getElementById("add")
-  );
+  nameLinks.insertBefore(wrapperDiv, document.getElementById("add"));
   generateJson();
 }
 document.addEventListener("DOMContentLoaded", () => {
