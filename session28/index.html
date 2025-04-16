@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Case #1: The Hidden Message -->
+    <h2>Case #1: The Hidden Message</h2>
+    <p id="hidden-message" style="display: none">!egassem terces a si sihT</p>
+    <p>Decoded Message: <span id="decoded-message"></span></p>
+    <button onclick="revealMessage()">Reveal Message</button>
+
+    <!-- Case #2: Classified Files -->
+    <h2>Case #2: Classified Files</h2>
+    <div class="classified" data-security="high">Top Secret Document</div>
+    <div class="classified" data-security="medium">Confidential Report</div>
+    <div class="classified" data-security="low">Public Notice</div>
+    <button id="classified-btn" onclick="securityLevel()">Secutiry</button>
+
+    <!-- Case #3: Suspect Identification -->
+     <h2>Case #3: Suspect Identification</h2>
+    <div class="suspect" data-clue="red-hat">Suspect 1</div>
+    <div class="suspect" data-clue="blue-scarf">Suspect 2</div>
+    <div class="suspect" data-clue="green-coat">Suspect 3</div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
