@@ -62,7 +62,26 @@ suspectIdentification();
 // Case #4: Digital Evidence Collection
 
 const digitalEvidenceCollection = () => {
-  const avidence = document.querySelectorAll('data-evidence');
+  const evidence = document.querySelectorAll('data-evidence');
   const evidenceLog = document.getElementById('evidence-log');
+  const evidenceCount = document.getElementById('evidence-count');
+
+    let remaining = evidence.length;
+    evidenceCount.textContent = remaining;
+
+    evidence.forEach((e) => {
+      const li = document.createElement('li');
+      li.textContent = e.textContent;
+
+      li.addEventListener('click', () => {
+        if (!li.classList.contains('collected')) {
+          li.classList.add('collected');
+          remaining--;
+          evidenceCount.textContent = remaining;
+        }
+      });
+
+      evidenceLog.appendChild(li);
+    });
 }
 digitalEvidenceCollection();
