@@ -20,7 +20,7 @@ const securityLevel = () => {
   const CLASSIFIED_DOCUMENT = document.getElementsByClassName("classified");
   const btn = document.getElementById("classified-btn");
 
-  Array.from(CLASSIFIED_DOCUMENT).forEach((e) => {
+  Array.from(CLASSIFIED_DOCUMENT).filter((e) => {
     const level = e.getAttribute("data-security");
 
     btn.addEventListener("click", () => {
