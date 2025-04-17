@@ -42,7 +42,27 @@ securityLevel();
 // Case #3: Suspect Identification
 
 const suspectIdentification = () => {
-    const suspects = document.getElementsByTagName('.suspect');
+  const suspects = document.getElementsByTagName("suspect");
+  const evidence = "blue-scarf"; 
 
+
+  Array.from(suspects).forEach((e) => {
+    const identify = e.getAttribute("data-clue");
+    if (identify === evidence) {
+      e.classList.add("prime-suspect");
+
+      const identified = document.createElement("suspect");
+      identified.innerText = "IDENTIFIED";
+      e.after(identified);
+    }
+  });
 };
 suspectIdentification();
+
+// Case #4: Digital Evidence Collection
+
+const digitalEvidenceCollection = () => {
+  const avidence = document.querySelectorAll('data-evidence');
+  const evidenceLog = document.getElementById('evidence-log');
+}
+digitalEvidenceCollection();

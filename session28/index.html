@@ -20,10 +20,20 @@
     <button id="classified-btn" onclick="securityLevel()">Secutiry</button>
 
     <!-- Case #3: Suspect Identification -->
-     <h2>Case #3: Suspect Identification</h2>
-    <div class="suspect" data-clue="red-hat">Suspect 1</div>
-    <div class="suspect" data-clue="blue-scarf">Suspect 2</div>
-    <div class="suspect" data-clue="green-coat">Suspect 3</div>
+    <h2>Case #3: Suspect Identification</h2>
+    <suspect class="suspect" data-clue="red-hat">Suspect 1</suspect>
+    <suspect class="suspect" data-clue="blue-scarf">Suspect 2</suspect>
+    <suspect class="suspect" data-clue="green-coat">Suspect 3</suspect>
+
+    <!-- Case #4: Digital Evidence Collection -->
+    <h2>Case #4: Digital Evidence Collection</h2>
+    <ul id="evidence-log"></ul>
+    <p>Evidence Remaining: <span id="evidence-count">0</span></p>
+    
+    <div data-evidence="true">USB Drive</div>
+    <div data-evidence="true">Hacked File</div>
+    <div data-evidence="true">Suspicious Email</div>
+    
 
     <script src="app.js"></script>
   </body>
