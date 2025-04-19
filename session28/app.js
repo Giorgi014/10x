@@ -43,8 +43,7 @@ securityLevel();
 
 const suspectIdentification = () => {
   const suspects = document.getElementsByTagName("suspect");
-  const evidence = "blue-scarf"; 
-
+  const evidence = "blue-scarf";
 
   Array.from(suspects).forEach((e) => {
     const identify = e.getAttribute("data-clue");
@@ -62,26 +61,54 @@ suspectIdentification();
 // Case #4: Digital Evidence Collection
 
 const digitalEvidenceCollection = () => {
-  const evidence = document.querySelectorAll('data-evidence');
-  const evidenceLog = document.getElementById('evidence-log');
-  const evidenceCount = document.getElementById('evidence-count');
+  const evidence = document.querySelectorAll('[data-evidence="true"]');
+  const evidenceLog = document.getElementById("evidence-log");
+  const evidenceCount = document.getElementById("evidence-count");
 
-    let remaining = evidence.length;
-    evidenceCount.textContent = remaining;
+  let remaining = evidence.length;
+  evidenceCount.textContent = remaining;
 
-    evidence.forEach((e) => {
-      const li = document.createElement('li');
-      li.textContent = e.textContent;
+  evidence.forEach((e) => {
+    const li = document.createElement("li");
+    li.textContent = e.textContent;
 
-      li.addEventListener('click', () => {
-        if (!li.classList.contains('collected')) {
-          li.classList.add('collected');
-          remaining--;
-          evidenceCount.textContent = remaining;
-        }
-      });
-
-      evidenceLog.appendChild(li);
+    li.addEventListener("click", () => {
+      if (!li.classList.contains("collected")) {
+        li.classList.add("collected");
+        remaining--;
+        evidenceCount.textContent = remaining;
+      }
     });
-}
+
+    evidenceLog.appendChild(li);
+  });
+};
 digitalEvidenceCollection();
+
+// Case #5: The Disappearing Records
+
+const disappearingRecords = () => {
+  const records = document.getElementById("records");
+  const auditLog = document.getElementById("audit-log");
+  const recoverButton = document.querySelector('button[onclick="recoverLast()"]');
+
+  const recoverLast = () => {
+
+  };
+  recoverLast();
+};
+disappearingRecords();
+// ???????????????????????????????????????????????????????????
+
+// Case #6: The Code Breaker
+
+const codeBreaker = () => {
+  const codeContainer = document.getElementById("code-container");
+  const draggable = document.querySelectorAll(".draggable");
+  const decoded = document.getElementById("decoded-text");
+
+  decoded.addEventListener("click", () => {
+   
+  });
+};
+codeBreaker();

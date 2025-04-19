@@ -29,11 +29,40 @@
     <h2>Case #4: Digital Evidence Collection</h2>
     <ul id="evidence-log"></ul>
     <p>Evidence Remaining: <span id="evidence-count">0</span></p>
-    
+
     <div data-evidence="true">USB Drive</div>
     <div data-evidence="true">Hacked File</div>
     <div data-evidence="true">Suspicious Email</div>
+
+    <!-- Case #5: The Disappearing Records -->
+    <h2>Case #5: The Disappearing Records</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Data Entry</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="records">
+        <tr>
+          <td>Classified Info</td>
+          <td><button onclick="deleteEntry(this)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button onclick="recoverLast()">Recover Last Deleted</button>
+    <ul id="audit-log"></ul>
+
+    <!-- Case #6: The Code Breaker -->
+     <h2>Case #6: The Code Breaker</h2>
+     <div id="code-container">
+      <div class="draggable" draggable="true">🔑</div>
+      <div class="draggable" draggable="true">🔒</div>
+      <div class="draggable" draggable="true">📜</div>
+    </div>
     
+    <p id="decoded-text"></p>
 
     <script src="app.js"></script>
   </body>
