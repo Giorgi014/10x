@@ -163,6 +163,49 @@ const codeBreaker = () => {
   const draggable = document.querySelectorAll(".draggable");
   const decoded = document.getElementById("decoded-text");
 
-  decoded.addEventListener("click", () => {});
+  let draggableItem;
+
+  draggable.forEach(item => {
+    item.addEventListener("dragstart",() =>{
+      draggableItem = item;
+    })
+  })
+
+  codeContainer.addEventListener("dragover", (e) =>{
+    e.preventDefault();
+    const afterDrag = afterDragElement(codeContainer, e.clientY)
+    if (afterDrag === null) {
+      codeContainer.appendChild(draggableItem)
+    }else{
+      codeContainer.insertBefore(draggableItem, afterDrag)
+    }
+  });
+
+  const afterDragElement = (e, y) => {
+    const draggableElements = [...e.querySelectorAll(".draggable:not(.dragging)")];
+    return draggableElements.reduce((closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+  }
+
+  const correctPattern = ["🔑", "🔒", "📜"];
+
+  codeContainer.addEventListener("drop", () => {
+    const current = [...codeContainer.querySelectorAll(".draggable")].map(e => e.textContent.trim());
+
+    if (JSON.stringify(current) === JSON.stringify(correctPattern)) {
+      decoded.textContent = "Message Decoded: Access Granted!";
+      decoded.style.color = "green";
+    } else {
+      decoded.textContent = "Incorrect...";
+      decoded.style.color = "red";
+    }
+  });
 };
 codeBreaker();
