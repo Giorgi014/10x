@@ -87,18 +87,74 @@ digitalEvidenceCollection();
 
 // Case #5: The Disappearing Records
 
+const form = document.getElementById("allow-data");
+const input = document.getElementById("text-data");
+const add = document.getElementById("add");
+const records = document.getElementById("records");
+const auditLog = document.getElementById("audit-log");
+
+let addedTable = [];
+let removedTable = [];
+
 const disappearingRecords = () => {
-  const records = document.getElementById("records");
-  const auditLog = document.getElementById("audit-log");
-  const recoverButton = document.querySelector('button[onclick="recoverLast()"]');
+  add.addEventListener("click", (e) => {
+    e.preventDefault();
+    const value = input.value.trim();
+    if (value) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+          <td>${value}</td>
+          <td><button onclick="deleteEntry(this)">Delete</button></td>
+        `;
+      records.appendChild(tr);
+      addedTable.push(value);
+      logAction(`Added: ${value}`);
+      input.value = "";
+    }
+  });
+};
+const logAction = (message) => {
+  const ul = document.createElement("ul");
+  ul.textContent = `${message}`;
+  auditLog.appendChild(ul);
+};
 
-  const recoverLast = () => {
+function deleteEntry(btn) {
+  const remove = btn.closest("tr");
 
-  };
-  recoverLast();
+  if (remove) {
+    const text = remove.querySelector("td").textContent;
+
+    const logItems = auditLog.querySelectorAll("ul");
+    logItems.forEach((item) => {
+      if (item.textContent === text) {
+        item.remove();
+      }
+    });
+
+    addedTable = addedTable.filter((item) => item !== text);
+    removedTable.push(text);
+
+    remove.remove();
+  }
+}
+const recoverLast = () => {
+  const lastRemoved = removedTable.pop();
+  if (lastRemoved) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${lastRemoved}</td>
+      <td><button onclick="deleteEntry(this)">Delete</button></td>
+    `;
+    records.appendChild(tr);
+    addedTable.push(lastRemoved);
+
+    const ul = document.createElement("ul");
+    ul.textContent = `Recovered: "${lastRemoved}"`;
+    auditLog.appendChild(ul);
+  }
 };
 disappearingRecords();
-// ???????????????????????????????????????????????????????????
 
 // Case #6: The Code Breaker
 
@@ -107,8 +163,6 @@ const codeBreaker = () => {
   const draggable = document.querySelectorAll(".draggable");
   const decoded = document.getElementById("decoded-text");
 
-  decoded.addEventListener("click", () => {
-   
-  });
+  decoded.addEventListener("click", () => {});
 };
 codeBreaker();
